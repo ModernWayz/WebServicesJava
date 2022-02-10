@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GradeRepository extends CrudRepository<Grade, Long> {
-    //public Grade findByFirstAndLastName(String firstName, String lastName);
+    public Grade findByFirstNameAndLastName(String firstName, String lastName);
 }

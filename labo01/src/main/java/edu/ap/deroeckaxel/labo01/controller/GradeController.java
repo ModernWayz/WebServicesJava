@@ -30,8 +30,8 @@ public class GradeController {
 
     @GetMapping("/{firstName}/{lastName}")
     public String getDetail(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, Model model){
-        //Grade grade = repository.findByFirstAndLastName(firstName, lastName);
-        //model.addAttribute("grade", grade);
+        Grade grade = repository.findByFirstNameAndLastName(firstName, lastName);
+        model.addAttribute("grade", grade);
 
         return "detail";
     }
