@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Grade A Student</title>
+</head>
+<body>
+
+    <h1>Grade A Student</h1>
+    <form th:action="@{/grade}" method="POST">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName">
+
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName">
+
+        <label for="grade">Grade</label>
+        <input type="text" name="grade" id="grade">
+
+        <input type="submit" value="save">
+    </form>
+    
+</body>
+</html>

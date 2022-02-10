@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Grade Detail</title>
+</head>
+<body>
+
+    <h1>Grade Detail</h1>
+
+    <p th:text="${grade?.firstName} + ' ' + ${grade?.lastName} + ' : ' + ${grade?.grade}"></p>
+
+    <a href="/grade">Grade a student</a>
+    
+</body>
+</html>
