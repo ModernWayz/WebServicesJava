@@ -3,6 +3,7 @@ package edu.ap.spring.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.ap.spring.transaction.Transaction;
@@ -77,26 +78,31 @@ public class Block {
 
 	public String toJSON() {
 		JSONObject blockObj = new JSONObject();
-		blockObj.put("hash", this.hash);
-		//blockObj.put("merkleRoot", this.merkleRoot);
-		//blockObj.put("nonce", this.nonce);
-		blockObj.put("previousHash", this.previousHash);
-		//blockObj.put("timeStamp", this.timeStamp);
-		JSONObject[] trs = new JSONObject[this.getTransactions().size()];
-		int j = 0;
-		for(Transaction t : this.getTransactions()) {
-			JSONObject tr = new JSONObject();
-			tr.put("recipient", t.recipient.toString());
-			tr.put("sender", t.sender.toString());
-			tr.put("transactionId", t.transactionId);
-			tr.put("value", t.value);
+		try {
+			blockObj.put("hash", this.hash);
+		
+			//blockObj.put("merkleRoot", this.merkleRoot);
+			//blockObj.put("nonce", this.nonce);
+			blockObj.put("previousHash", this.previousHash);
+			//blockObj.put("timeStamp", this.timeStamp);
+			JSONObject[] trs = new JSONObject[this.getTransactions().size()];
+			int j = 0;
+			for(Transaction t : this.getTransactions()) {
+				JSONObject tr = new JSONObject();
+				tr.put("recipient", t.recipient.toString());
+				tr.put("sender", t.sender.toString());
+				tr.put("transactionId", t.transactionId);
+				tr.put("value", t.value);
 
-			trs[j] = tr;
-			j++;
+				trs[j] = tr;
+				j++;
+			}
+				
+			blockObj.put("transactions", trs);
+		} 
+		catch (JSONException e) {
+			e.printStackTrace();
 		}
-			
-		blockObj.put("transactions", trs);
-
 		return blockObj.toString();
 	}
 }

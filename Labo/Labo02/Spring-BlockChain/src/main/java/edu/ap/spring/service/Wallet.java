@@ -44,7 +44,7 @@ public class Wallet {
 		for(Block block : bChain.getBlocks()) {
 			ArrayList<Transaction> transactions = block.getTransactions();
 			for(Transaction tr : transactions) {
-				System.out.println(tr.recipient);
+				//System.out.println(tr.recipient);
 				if(tr.sender == this.getPublicKey()) {
 					total -= tr.value;
 				}
