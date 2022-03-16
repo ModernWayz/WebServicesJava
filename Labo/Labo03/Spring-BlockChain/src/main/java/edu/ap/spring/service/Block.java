@@ -80,7 +80,6 @@ public class Block {
 		JSONObject blockObj = new JSONObject();
 		try {
 			blockObj.put("hash", this.hash);
-		
 			//blockObj.put("merkleRoot", this.merkleRoot);
 			//blockObj.put("nonce", this.nonce);
 			blockObj.put("previousHash", this.previousHash);
@@ -97,12 +96,12 @@ public class Block {
 				trs[j] = tr;
 				j++;
 			}
-				
+			
 			blockObj.put("transactions", trs);
-		} 
-		catch (JSONException e) {
+		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+
 		return blockObj.toString();
 	}
 }

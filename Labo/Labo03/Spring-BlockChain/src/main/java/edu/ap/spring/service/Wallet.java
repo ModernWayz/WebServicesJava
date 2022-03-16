@@ -59,10 +59,10 @@ public class Wallet {
 	
 	public Transaction sendFunds(PublicKey recipient, float value) throws Exception {
 		
-		if(getBalance() < value) {
+		/*if(getBalance() < value) {
 			System.out.println("# Not Enough funds to send transaction. Transaction Discarded.");
 			throw new Exception();
-		}
+		}*/
 
 		if(this.getPublicKey() == recipient) {
 			System.out.println("# You cannot transfer funds to yourself. Transaction Discarded.");

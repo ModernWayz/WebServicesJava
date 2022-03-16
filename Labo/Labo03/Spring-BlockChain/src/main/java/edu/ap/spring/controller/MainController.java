@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import edu.ap.spring.aop.Interceptable;
 import edu.ap.spring.service.*;
 import edu.ap.spring.transaction.Transaction;
 
@@ -47,6 +48,7 @@ public class MainController {
    	}
 
   	@GetMapping(value="/balance/{wallet}")
+	@Interceptable
    	public String getBalance(@PathVariable("wallet") String wallet,
                              Model model) {
      	
@@ -62,7 +64,7 @@ public class MainController {
 		model.addAttribute("balance", 0f);
 	  }
       
-    return "balance";
+    	return "balance";
   	}
 
   	@GetMapping(value="/transaction")
