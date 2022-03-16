@@ -26,4 +26,20 @@ router.get('/:name', async (req, res) => {
 	res.json(repos)
 })
 
+router.get('/endpoint', async (req, res) => {
+
+    let ip = req.ip
+    await redis.incr(ip)
+    await redis.expire(ip, 60)
+
+    count = await redis.get(req.ip)
+
+    if(count < 6) {
+	    res.json({'status' : 'OK'})
+    }
+    else {
+        res.json({'warning' : '5 calls in 60 seconds'})
+    }
+})
+
 module.exports = router;
