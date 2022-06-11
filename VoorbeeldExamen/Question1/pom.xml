@@ -15,7 +15,7 @@
 	<description>exam 7 sept 2020</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
