@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th='http://www.thymeleaf.org'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+    <title>Document</title>
+</head>
+<body>
+    <form th:action='@{/importStudents}' method='POST'>
+        Students (CSV): <input id='students' type='text' name='students'>
+        <input type='SUBMIT' value='Import'>
+    </form>
+
+
+    <tr th:each='infraction: ${lijst}'>
+        <td th:text='${lijst[0]}' />
+    </tr>
+</body>
+</html>
